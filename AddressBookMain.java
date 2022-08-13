@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookMain {
@@ -11,7 +14,7 @@ public class AddressBookMain {
     int zip;
 
 
-    //when ever constructor called
+    //when ever constractor called
     public AddressBookMain(String name, String address, String city, String state, String number, String email, int zip) {
         this.name = name;
         this.address = address;
@@ -60,8 +63,11 @@ public class AddressBookMain {
 
 
     public static void main(String[] args) {
-        System.out.println("Welcome to AddressBook");
+        Collection<AddressBookMain> c = new ArrayList<AddressBookMain>();
+        Scanner s = new Scanner(System.in);
         Scanner sc = new Scanner(System.in);
+
+
 
         int ch;
         do{
@@ -69,6 +75,31 @@ public class AddressBookMain {
             System.out.println("2.DISPLAY ");
             System.out.print("Enter Your Choice ");
             ch = sc.nextInt();
+
+
+            switch (ch){
+                case 1:
+                    System.out.println("Enter Name: ");
+                    String name = s.nextLine();
+                    System.out.println("Enter Address: ");
+                    String address = s.nextLine();
+                    System.out.println("Enter city: ");
+                    String city = s.nextLine();
+                    System.out.println("Enter state: ");
+                    String state = s.nextLine();
+                    System.out.println("Enter Number: ");
+                    String number = s.nextLine();
+                    System.out.println("Enter email: ");
+                    String email = s.nextLine();
+                    System.out.println("Enter zip: ");
+                    int zip = s.nextInt();
+
+            //here we calling constructor once value is passed in con object will created tat object is added to collection
+                    c.add(new AddressBookMain(name,address,city,state,number,email,zip));
+                    break;
+                case 2:
+                    System.out.println(c);
+            }
 
         }while (ch!=0);
     }
