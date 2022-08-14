@@ -176,7 +176,6 @@ public class AddressBookMain {
                     System.out.println("-----------------------------------------");
                     break;
         }
-
             }while (ch!=0);
 
         }
